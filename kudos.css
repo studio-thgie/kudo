@@ -18,20 +18,18 @@
     min-height: 100vh;
   }
   .cameraRoll {
-    width: 130px;
-    height: 130px;
+    height: 80px;
     background-size: cover;
     background-position: center center;
     overflow: hidden;
-    border-radius: 50%;
-    float: left;
-    margin-right: 20px;
 }
-#cameraRoll:after {
-  content: '';
-  clear: both;
-  display: block;
-  margin-bottom: 40px;
+@media (min-width: 760px){
+  .cameraRoll {
+    height: 160px;
+  }
+}
+#frame {
+  width: 100%;
 }
 
 .fullscreen {

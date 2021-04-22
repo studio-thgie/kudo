@@ -54,8 +54,9 @@ function buildStepsBreadcrumb (wizard, element, steps) {
   });
 
   function addImageToView(file) {
-      var photo = $('<div><div/>');
+      var photo_wrapper = $('<div class="col-6 col-sm-4 mb-3"><div/>'),
+          photo = $('<div class="rounded"><div/>');
       photo.css({ 'background-image': "url('" + URL.createObjectURL(file) + "')" });
       photo.addClass('cameraRoll');
-      cameraRoll.prepend(photo);
+      cameraRoll.prepend(photo_wrapper.append(photo));
   }

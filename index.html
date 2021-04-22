@@ -15,85 +15,103 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col-12 align-self-center">
-            <div class="m-3 m-lg-5">
+            <div>
       
-              <div class="text-center mt-4 mb-3">
-                <h1 class="h3">Multi-step Form Wizard</h1>
+              <div class="text-center mt-4 mb-5">
+                <h1 class="h3">Kunst-Doku</h1>
                 <p class="lead">
-                  Navigate between steps in this multi-step Bootstrap 5 Form Wizard example.
+                  Neues Kunstwerk erfassen
                 </p>
               </div>
-      
+
               <ul id="steps-native" class="nav nav-pills justify-content-center"></ul>
+
+              <hr>
               
               <form id="wizard" class="my-2 py-2">
-                <section data-step="1. Account">
+                <section data-step="Basics" class="container">
                   <div class="mb-3">
-                      <input type="file" accept="image/*" capture="camera" id="camera" style="display: none;">
-                      <button class="btn btn-primary" onclick="document.getElementById('camera').click();">Open Camera/Browse Photos</button>
+                    <label class="form-label" for="title">Titel der Arbeit *</label>
+                    <input class="form-control" type="title" name="title" placeholder="Titel">
                   </div>
                   <div class="mb-3">
-                      <img id="frame">
-                  </div>
-                  <div class="mb-3">
-                      <div id="cameraRoll"></div>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="email">Email</label>
-                    <input class="form-control" type="email" name="email" placeholder="Email..">
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="password">Password</label>
-                    <input class="form-control" type="password" name="password" placeholder="Password.." required>
-                  </div>
+                    <input type="file" accept="image/*" capture="camera" id="camera" style="display: none;">
+                    <button class="btn btn-primary" onclick="document.getElementById('camera').click();">Foto machen/auswählen</button>
+                </div>
+                <div class="mb-3">
+                    <img id="frame" class="rounded">
+                </div>
+                <div class="mb-3 row" id="cameraRoll">
+                </div>
                   <div class="row">
                     <div class="col-12 text-right">
-                      <button class="btn btn-primary" data-next>Next</button>
+                      <button class="btn btn-primary" data-next>Weiter</button>
                     </div>
                   </div>
                 </section>
               
-                <section data-step="2. Profile">
+                <section data-step="Meta">
                   <div class="mb-3">
-                    <label class="form-label" for="first-name">First name</label>
-                    <input class="form-control" type="text" name="first-name" placeholder="First name.." required>
+                    <label class="form-label" for="date">Entstehungsdatum *</label>
+                    <input class="form-control" type="date" name="date" placeholder="Datum" required>
                   </div>
                   
                   <div class="mb-3">
-                    <label class="form-label" for="last-name">Last name</label>
-                    <input class="form-control" type="text" name="last-name" placeholder="Last name.." required>
+                    <label class="form-label" for="location">Ort</label>
+                    <input class="form-control" type="text" name="location" placeholder="Ort">
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label" for="size">Grösse</label>
+                        <input class="form-control" type="text" name="size" placeholder="Grösse">
+                      </div>
+                      
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label" for="weight">Gewicht</label>
+                        <input class="form-control" type="text" name="weight" placeholder="Gewicht">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label class="form-label" for="technique">Technik</label>
+                    <textarea class="form-control" type="text" name="technique"></textarea>
                   </div>
       
                   <div class="row">
                     <div class="col-6 text-left">
-                      <button class="btn btn-outline-primary" data-prev>Previous</button>
+                      <button class="btn btn-outline-primary" data-prev>Zurück</button>
                     </div>
                     <div class="col-6 text-right">
-                      <button class="btn btn-primary" data-next>Next</button>
+                      <button class="btn btn-primary" data-next>Weiter</button>
                     </div>
                   </div>
                 </section>
               
-                <section data-step="3. Social">
+                <section data-step="Archiv">
                   <div class="mb-3">
-                    <label class="form-label" for="facebook">Facebook</label>
-                    <input class="form-control" type="date" name="facebook" placeholder="Facebook.." required>
+                    <label class="form-label" for="storage_location">Aufbewahrungsort</label>
+                    <input class="form-control" type="text" name="storage_location" placeholder="Aufbewahrungsort" required>
                   </div>
                   <div class="mb-3">
-                    <label class="form-label" for="twitter">Twitter</label>
-                    <input class="form-control" type="text" name="twitter" placeholder="Twitter.." required>
+                    <label class="form-label" for="id">Katalogsnummer/ID</label>
+                    <input class="form-control" type="text" name="id" placeholder="Katalogsnummer/ID" required>
                   </div>
                   <div class="mb-3">
-                    <label class="form-label" for="instagram">Instagram</label>
-                    <input class="form-control" type="text" name="instagram" placeholder="Instagram.." required>
+                    <label class="form-label" for="remarks">Bemerkungen</label>
+                    <textarea class="form-control" type="text" name="remarks"></textarea>
                   </div>
               
                   <div class="row">
                     <div class="col-6 text-left">
-                      <button class="btn btn-outline-primary" data-prev>Previous</button>
+                      <button class="btn btn-outline-primary" data-prev>Zurück</button>
                     </div>
                     <div class="col-6 text-right">
-                      <button class="btn btn-primary" type="submit">Sign up</button>
+                      <button class="btn btn-primary" type="submit">Speichern</button>
                     </div>
                   </div>
                 </section>
