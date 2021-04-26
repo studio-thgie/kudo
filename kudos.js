@@ -59,7 +59,7 @@ $(document).on('click', '#form-save', function(){
       '<td>'+(val || '-')+'</td>'
     );
   })
-  $('#overview-table tbody').prepend(row);
+  $('#overview-table tbody').append(row);
 
   $('#wizard-wrapper').addClass('d-none');
   $('#overview').removeClass('d-none');
