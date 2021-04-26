@@ -1,129 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KuDo's</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="kudos.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KuDo's</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="kudos.css">
 
 </head>
+
 <body>
-    
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 align-self-center">
-            <div>
-      
-              <div class="text-center mt-4 mb-5">
-                <h1 class="h3">Kunst-Doku</h1>
-                <p class="lead">
-                  Neues Kunstwerk erfassen
-                </p>
-              </div>
 
-              <ul id="steps-native" class="nav nav-pills justify-content-center"></ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 align-self-center">
+        <div>
 
-              <hr>
-              
-              <form id="wizard" class="my-2 py-2">
-                <section data-step="Basics" class="container">
-                  <div class="mb-3">
-                    <label class="form-label" for="title">Titel der Arbeit *</label>
-                    <input class="form-control" type="title" name="title" placeholder="Titel">
-                  </div>
-                  <div class="mb-3">
-                    <input type="file" accept="image/*" capture="camera" id="camera" style="display: none;">
-                    <button class="btn btn-primary" onclick="document.getElementById('camera').click();">Foto machen/auswählen</button>
+          <div class="text-center mt-4 mb-5">
+            <h1 class="h3">Kunst-Doku</h1>
+            <p class="lead">
+              Neues Kunstwerk erfassen
+            </p>
+          </div>
+
+          <div id="wizard-wrapper">
+
+            <ul id="steps-native" class="nav nav-pills justify-content-center"></ul>
+
+            <hr>
+
+            <form id="wizard" class="my-2 py-2">
+              <section data-step="Basics" class="container">
+                <div class="mb-3">
+                  <label class="form-label" for="title">Titel der Arbeit *</label>
+                  <input class="form-control" type="text" name="title" placeholder="Titel" required>
                 </div>
                 <div class="mb-3">
-                    <img id="frame" class="rounded">
+                  <input type="file" accept="image/*" capture="camera" id="camera" style="display: none;">
+                  <button class="btn btn-primary" onclick="document.getElementById('camera').click();">Foto
+                    machen/auswählen</button>
+                </div>
+                <div class="mb-3">
+                  <img id="frame" class="rounded">
                 </div>
                 <div class="mb-3 row" id="cameraRoll">
                 </div>
-                  <div class="row">
-                    <div class="col-12 text-right">
-                      <button class="btn btn-primary" data-next>Weiter</button>
+                <div class="row">
+                  <div class="col-12 text-right">
+                    <button class="btn btn-primary" data-next>Weiter</button>
+                  </div>
+                </div>
+              </section>
+
+              <section data-step="Meta">
+                <div class="mb-3">
+                  <label class="form-label" for="date">Entstehungsdatum *</label>
+                  <input class="form-control" type="date" name="date" placeholder="Datum" required>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="location">Ort</label>
+                  <input class="form-control" type="text" name="location" placeholder="Ort">
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="size">Grösse</label>
+                      <input class="form-control" type="text" name="size" placeholder="Grösse">
+                    </div>
+
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="weight">Gewicht</label>
+                      <input class="form-control" type="text" name="weight" placeholder="Gewicht">
                     </div>
                   </div>
-                </section>
-              
-                <section data-step="Meta">
-                  <div class="mb-3">
-                    <label class="form-label" for="date">Entstehungsdatum *</label>
-                    <input class="form-control" type="date" name="date" placeholder="Datum" required>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="technique">Technik</label>
+                  <textarea class="form-control" type="text" name="technique"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="material">Material</label>
+                  <textarea class="form-control" type="text" name="material"></textarea>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 text-left">
+                    <button class="btn btn-outline-primary" data-prev>Zurück</button>
                   </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label" for="location">Ort</label>
-                    <input class="form-control" type="text" name="location" placeholder="Ort">
+                  <div class="col-6 text-right">
+                    <button class="btn btn-primary" data-next>Weiter</button>
                   </div>
-                  
-                  <div class="row">
-                    <div class="col-12 col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label" for="size">Grösse</label>
-                        <input class="form-control" type="text" name="size" placeholder="Grösse">
-                      </div>
-                      
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label" for="weight">Gewicht</label>
-                        <input class="form-control" type="text" name="weight" placeholder="Gewicht">
-                      </div>
-                    </div>
+                </div>
+              </section>
+
+              <section id="form-last-step" data-step="Archiv-Infos">
+                <div class="mb-3">
+                  <label class="form-label" for="storage_location">Aufbewahrungsort</label>
+                  <input class="form-control" type="text" name="storage_location" placeholder="Aufbewahrungsort">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="id">Katalogsnummer/ID</label>
+                  <input class="form-control" type="text" name="id" placeholder="Katalogsnummer/ID">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="remarks">Bemerkungen</label>
+                  <textarea class="form-control" type="text" name="remarks"></textarea>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 text-left">
+                    <button class="btn btn-outline-primary" data-prev>Zurück</button>
                   </div>
-                  
-                  <div class="mb-3">
-                    <label class="form-label" for="technique">Technik</label>
-                    <textarea class="form-control" type="text" name="technique"></textarea>
+                  <div class="col-6 text-right">
+                    <button class="btn btn-primary" type="submit" id="form-save">Speichern</button>
                   </div>
-      
-                  <div class="row">
-                    <div class="col-6 text-left">
-                      <button class="btn btn-outline-primary" data-prev>Zurück</button>
-                    </div>
-                    <div class="col-6 text-right">
-                      <button class="btn btn-primary" data-next>Weiter</button>
-                    </div>
-                  </div>
-                </section>
-              
-                <section data-step="Archiv">
-                  <div class="mb-3">
-                    <label class="form-label" for="storage_location">Aufbewahrungsort</label>
-                    <input class="form-control" type="text" name="storage_location" placeholder="Aufbewahrungsort" required>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="id">Katalogsnummer/ID</label>
-                    <input class="form-control" type="text" name="id" placeholder="Katalogsnummer/ID" required>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="remarks">Bemerkungen</label>
-                    <textarea class="form-control" type="text" name="remarks"></textarea>
-                  </div>
-              
-                  <div class="row">
-                    <div class="col-6 text-left">
-                      <button class="btn btn-outline-primary" data-prev>Zurück</button>
-                    </div>
-                    <div class="col-6 text-right">
-                      <button class="btn btn-primary" type="submit">Speichern</button>
-                    </div>
-                  </div>
-                </section>
-              </form>
-            </div>
+                </div>
+              </section>
+            </form>
           </div>
+
+          <section id="overview" class="d-none">
+            <h2>Einträge</h2>
+            <div class="table-responsive">
+              <table class="table table-striped" id="overview-table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Titel</th>
+                    <th>Datum</th>
+                    <th>Ort</th>
+                    <th>Grösse</th>
+                    <th>Gewicht</th>
+                    <th>Technik</th>
+                    <th>Material</th>
+                    <th>Aufbewahrungsort</th>
+                    <th>Katalogsnummer/ID</th>
+                    <th>Bemerkung</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Lorem ipsum</td>
+                    <td>29.08.2020</td>
+                    <td>Biel/Bienne</td>
+                    <td>30cm * 24cm * 11cm</td>
+                    <td>300g</td>
+                    <td>Acryl</td>
+                    <td>-</td>
+                    <td>Studio Biel/Bienne</td>
+                    <td>200829</td>
+                    <td>Das Werk bleibt für 1 Jahr an der angegebenen Adresse und wird nacher ausgeliehen.</td>
+                  </tr>
+                  <tr>
+                    <td>Exercitationem voluptatum</td>
+                    <td>29.08.2020</td>
+                    <td>Biel/Bienne</td>
+                    <td>-</td>
+                    <td>300g</td>
+                    <td>Acryl</td>
+                    <td>-</td>
+                    <td>Studio Biel/Bienne</td>
+                    <td>200829</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>Vel officia eveniet fugiat odio</td>
+                    <td>29.08.2020</td>
+                    <td>Biel/Bienne</td>
+                    <td>2m</td>
+                    <td>-</td>
+                    <td>Acryl</td>
+                    <td>-</td>
+                    <td>Studio Biel/Bienne</td>
+                    <td>200829</td>
+                    <td>Wir überarbeitet.</td>
+                  </tr>
+                  <tr>
+                    <td>Nein</td>
+                    <td>29.08.2020</td>
+                    <td>Biel/Bienne</td>
+                    <td>30cm * 24cm * 11cm</td>
+                    <td>300g</td>
+                    <td>Acryl</td>
+                    <td>-</td>
+                    <td>Studio Biel/Bienne</td>
+                    <td>200829</td>
+                    <td>Nichts.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
         </div>
       </div>
+    </div>
+  </div>
 
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/zangdar@1.0.25/dist/zangdar.min.js"></script>
-      <script src="kudos.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/zangdar@1.0.25/dist/zangdar.min.js"></script>
+  <script src="kudos.js"></script>
 
 </body>
+
 </html>
